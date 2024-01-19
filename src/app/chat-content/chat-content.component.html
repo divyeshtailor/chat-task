@@ -1,4 +1,4 @@
-<swiper [breakpoints]="breakpoints" [loop]="true"
+<swiper [slidesPerView]="'auto'" [spaceBetween]="10" [loop]="true"
         [(index)]="indexNumber" >
   <ng-template swiperSlide let-data *ngFor="let slide of slides; index as i">
     <span>{{ slide }} / active: {{ data.isActive }} </span>

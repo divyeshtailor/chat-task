@@ -7,9 +7,10 @@ import {
   OnChanges,
   OnInit,
   Output,
-  SimpleChanges
+  SimpleChanges, ViewChild
 } from '@angular/core';
 import {ChatBoardFacade} from "../+state/chat-board.facade";
+import {SwiperComponent} from "swiper/angular";
 
 @Component({
   selector: 'app-chat-content',
@@ -19,16 +20,18 @@ import {ChatBoardFacade} from "../+state/chat-board.facade";
 export class ChatContentComponent implements OnInit, OnChanges{
   @Input() indexNumber = 0;
   @Output() indexNumberChange = new EventEmitter();
+  @ViewChild('mySwiper', { static: false }) mySwiper?: SwiperComponent;
+
   slides = Array.from({ length: 5 }).map((el, index) => `Slide ${index}`);
   navigation = false;
   scrollbar: any = false;
   show: boolean = true;
-  breakpoints = {
-    320: { slidesPerView: 1.2, spaceBetween: 10, centeredSlides: true },
-    640: { slidesPerView: 1.2, spaceBetween: 10, centeredSlides: true },
-    768: { slidesPerView: 1.2, spaceBetween: 10, centeredSlides: true },
-    1024: { slidesPerView: 1.2, spaceBetween: 10, centeredSlides: true },
-  };
+  // breakpoints = {
+  //   320: { slidesPerView: "auto", spaceBetween: 5, centeredSlides: true },
+  //   640: { slidesPerView: "auto", spaceBetween: 5, centeredSlides: true },
+  //   768: { slidesPerView: "auto", spaceBetween: 5, centeredSlides: true },
+  //   1024: { slidesPerView: "auto", spaceBetween: 5, centeredSlides: true },
+  // };
 
   constructor(private chatBoardFacade: ChatBoardFacade) {}
 
