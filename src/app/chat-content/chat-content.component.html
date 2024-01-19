@@ -1,0 +1,7 @@
+<swiper [breakpoints]="breakpoints" [loop]="true"
+        [(index)]="indexNumber" >
+  <ng-template swiperSlide let-data *ngFor="let slide of slides; index as i">
+    <span>{{ slide }} / active: {{ data.isActive }} </span>
+  </ng-template>
+  <div slot="container-end" class="swiper-pagination pagination-test"></div>
+</swiper>
