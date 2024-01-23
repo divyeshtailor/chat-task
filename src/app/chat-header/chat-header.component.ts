@@ -7,7 +7,14 @@ import {ChatBoardFacade} from "../+state/chat-board.facade";
   styleUrls: ['./chat-header.component.css']
 })
 export class ChatHeaderComponent {
-  slides = Array.from({ length: 5 }).map((el, index) => `Slide ${index}`);
+  slides = Array.from({ length: 5 }).map((el, index) => `U`);
+  slideMy = [
+    { name: 'U1', url: './assets/img1.png'},
+    { name: 'U2', url: './assets/img2.png'},
+    { name: 'U3', url: './assets/img3.png'},
+    { name: 'U4', url: './assets/img4.png'},
+    { name: 'U5', url: 'https://picsum.photos/100'}
+  ]
   slidesEx = ['first', 'second', 'third', 'fourth', 'fifth'];
   navigation = false;
   breakpoints = {
@@ -20,7 +27,6 @@ export class ChatHeaderComponent {
   show: boolean = true;
   @Input() indexNumber = 0;
   @Output() indexNumberChange = new EventEmitter();
-
 
   constructor(private cd: ChangeDetectorRef, private ngZone: NgZone, private chatBoardFacade: ChatBoardFacade) {}
 

@@ -1,7 +1,39 @@
-<swiper [slidesPerView]="'auto'" [spaceBetween]="10" [loop]="true"
-        [(index)]="indexNumber" >
-  <ng-template swiperSlide let-data *ngFor="let slide of slides; index as i">
-    <span>{{ slide }} / active: {{ data.isActive }} </span>
-  </ng-template>
-  <div slot="container-end" class="swiper-pagination pagination-test"></div>
-</swiper>
+<div class="chatContent-main">
+  <swiper [slidesPerView]="'auto'" [spaceBetween]="10" [loop]="true"
+          [(index)]="indexNumber" >
+    <ng-template swiperSlide let-data *ngFor="let slide of slides; index as i">
+      <div class="chatbox-main">
+        <span>{{ slide }} / active: {{ data.isActive }} </span>
+        <div class="chat-sender">
+          <p>
+            Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week
+          </p>
+        </div>
+        <div class="chat-reply">
+          <p>
+            Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week
+          </p>
+        </div>
+        <div class="chat-message">
+          <textarea name="chat-msg" id="chat-msg" cols="30" rows="7" placeholder="Your Message"></textarea>
+          <div class="chat-images">
+            <a href="#">
+              <img src="./assets/Vector.png" />
+            </a>
+            <a href="#">
+              <img src="./assets/Attachment.png" />
+            </a>
+            <a href="#">
+              <img src="./assets/Emoji.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </ng-template>
+    <div slot="container-end" class="swiper-pagination pagination-test">
+
+    </div>
+
+  </swiper>
+</div>

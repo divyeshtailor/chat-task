@@ -9,15 +9,29 @@ html {
   height: 100%;
 }
 
-.swiper-container {
+.chatContent-main .swiper-container {
   width: 100%;
-  height: 768px;
-  margin: 50px auto;
+  height: 320px;
+  margin: 0 auto 50px;
 }
 
 .swiper-slide {
-  background: #f1f1f1;
   color: #000;
   text-align: center;
-  line-height: 300px;
+}
+
+.chatHeader-main .swiper-container {
+  width: 100%;
+  height: 150px;
+  margin: 50px auto 0;
+}
+
+.chatContent-main .swiper-slide {
+  width: 85%;
+  margin-left: 10px;
+  /*box-shadow: 4.654265403747559px 4.654265403747559px 9.308530807495117px 0px rgba(0, 0, 0, 0.32) inset;*/
+  /*margin: 0 auto !important;*/
+  box-shadow: -2.7925593852996826px -2.7925593852996826px 3.72341251373291px 0px rgba(255, 255, 255, 0.1) inset;
+  border-radius: 11px;
+  padding: 0 10px;
 }

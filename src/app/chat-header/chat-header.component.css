@@ -1,0 +1,16 @@
+.profile-card {
+  text-align: center;
+  margin: 20px;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 51px;
+  height: 51px;
+  object-fit: cover;
+}
+
+.profile-name {
+  margin-top: 10px;
+  font-weight: bold;
+}
