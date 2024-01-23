@@ -1,24 +1,28 @@
 <div class="chatContent-main">
   <swiper [slidesPerView]="'auto'" [spaceBetween]="10" [loop]="true"
           [(index)]="indexNumber" >
-    <ng-template swiperSlide let-data *ngFor="let slide of slides; index as i">
+    <ng-template swiperSlide let-data *ngFor="let slide of defaultRecords; index as i">
       <div class="chatbox-main">
-        <span>{{ slide }} / active: {{ data.isActive }} </span>
-        <div class="chat-sender">
-          <p>
-            Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week
-          </p>
-        </div>
-        <div class="chat-reply">
-          <p>
-            Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week
-          </p>
+        <span> {{ data.isActive + ' ' + i }} </span>
+        <div class="message-area">
+          <div *ngFor="let msg of slide.messages">
+            <div class="chat-sender" *ngIf="msg.status == 'received'">
+              <p>
+                {{ msg.message }}
+              </p>
+            </div>
+            <div class="chat-reply" *ngIf="msg.status == 'sent'">
+              <p>
+                {{ msg.message }}
+              </p>
+            </div>
+          </div>
         </div>
         <div class="chat-message">
-          <textarea name="chat-msg" id="chat-msg" cols="30" rows="7" placeholder="Your Message"></textarea>
+          <textarea name="chat-msg" id="chat-msg" cols="30" rows="7" placeholder="Your Message" [formControl]="message"></textarea>
           <div class="chat-images">
             <a href="#">
-              <img src="./assets/Vector.png" />
+              <img src="./assets/Vector.png" (click)="addMessage(i)"/>
             </a>
             <a href="#">
               <img src="./assets/Attachment.png" />

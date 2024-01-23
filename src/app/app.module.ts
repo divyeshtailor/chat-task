@@ -11,6 +11,7 @@ import {SwiperModule} from "swiper/angular";
 import {StoreFeatureModule, StoreModule, StoreRootModule} from "@ngrx/store";
 import {featureKey, reducer} from "./+state/chat-board.reducer";
 import {StoreDevtools, StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {StoreDevtools, StoreDevtoolsModule} from "@ngrx/store-devtools";
     SwiperModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature(featureKey, reducer),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    ReactiveFormsModule
     // ProgressBarModule
   ],
   providers: [],

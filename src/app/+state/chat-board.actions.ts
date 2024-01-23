@@ -1,7 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 
-const testStore = createAction('[chat-board] test Data');
+const defaultRecord = createAction('[chat-board] Default Record', props<{ defaultRecord: any }>());
+
+const addMessage = createAction('[chat-board] Add Message', props<{ index: number; message: string; status: string }>());
 
 export const chatBoardActions = {
-  testStore
-}
+  defaultRecord,
+  addMessage
+};

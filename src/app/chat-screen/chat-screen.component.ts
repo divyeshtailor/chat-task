@@ -8,16 +8,19 @@ import { ChatBoardFacade } from "../+state/chat-board.facade";
 })
 export class ChatScreenComponent implements OnInit {
   indexNumber = 0;
+  defaultRecords$: any;
 
-  constructor(private cd: ChangeDetectorRef, private ngZone: NgZone, private chatBoardFacade: ChatBoardFacade) {
-  }
+  constructor(
+    private cd: ChangeDetectorRef,
+    private ngZone: NgZone,
+    private chatBoardFacade: ChatBoardFacade
+  ) {}
 
   ngOnInit(): void {
-    this.chatBoardFacade.changeTestData();
+     this.defaultRecords$ = this.chatBoardFacade.getDefaultRecord$
   }
 
   indexNumberChange(event: number){
     this.indexNumber = event;
-    console.log(this.indexNumber)
   }
 }

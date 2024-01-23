@@ -46,4 +46,8 @@
 .chat-images a {
   margin-bottom: 5px;
 }
+.message-area{
+  overflow-y: auto;
+  max-height: 166px;
+}
 

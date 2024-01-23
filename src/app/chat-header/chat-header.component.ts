@@ -9,12 +9,38 @@ import {ChatBoardFacade} from "../+state/chat-board.facade";
 export class ChatHeaderComponent {
   slides = Array.from({ length: 5 }).map((el, index) => `U`);
   slideMy = [
-    { name: 'U1', url: './assets/img1.png'},
-    { name: 'U2', url: './assets/img2.png'},
-    { name: 'U3', url: './assets/img3.png'},
-    { name: 'U4', url: './assets/img4.png'},
-    { name: 'U5', url: 'https://picsum.photos/100'}
-  ]
+    {
+      name: 'U1', url: './assets/img1.png',
+      messages: [
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+       ]
+    },
+    { name: 'U2', url: './assets/img2.png',
+      messages: [
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+      ]
+    },
+    { name: 'U3', url: './assets/img3.png',
+      messages: [
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+      ]
+    },
+    { name: 'U4', url: './assets/img4.png',
+      messages: [
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+      ]
+    },
+    { name: 'U5', url: 'https://picsum.photos/100',
+      messages: [
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
+        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+      ],
+    }
+  ];
   slidesEx = ['first', 'second', 'third', 'fourth', 'fifth'];
   navigation = false;
   breakpoints = {
@@ -26,12 +52,13 @@ export class ChatHeaderComponent {
   scrollbar: any = false;
   show: boolean = true;
   @Input() indexNumber = 0;
+  @Input() defaultRecords: any;
   @Output() indexNumberChange = new EventEmitter();
 
   constructor(private cd: ChangeDetectorRef, private ngZone: NgZone, private chatBoardFacade: ChatBoardFacade) {}
 
   ngOnInit(): void {
-    this.chatBoardFacade.changeTestData();
+    this.chatBoardFacade.setDefaultData(this.slideMy);
   }
 
   toggleNavigation() {
