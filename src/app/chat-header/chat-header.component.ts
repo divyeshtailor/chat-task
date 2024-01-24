@@ -12,32 +12,27 @@ export class ChatHeaderComponent {
     {
       name: 'U1', url: './assets/img1.png',
       messages: [
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+        {message: ' Hi Caky, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
        ]
     },
     { name: 'U2', url: './assets/img2.png',
       messages: [
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+        {message: ' Hi Deny, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
       ]
     },
     { name: 'U3', url: './assets/img3.png',
       messages: [
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+        {message: ' Hi Paps, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
       ]
     },
     { name: 'U4', url: './assets/img4.png',
       messages: [
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
         {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
       ]
     },
     { name: 'U5', url: 'https://picsum.photos/100',
       messages: [
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'sent'},
-        {message: ' Hi Jake, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
+        {message: ' Hi Siri, how are you? I saw on the app that we’ve crossed paths several times this week', status: 'received'}
       ],
     }
   ];

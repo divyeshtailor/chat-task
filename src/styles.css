@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~swiper/swiper-bundle.css";
+@import '@ctrl/ngx-emoji-mart/picker';
+
 
 body,
 html {
@@ -29,8 +31,6 @@ html {
 .chatContent-main .swiper-slide {
   width: 85%;
   margin-left: 10px;
-  /*box-shadow: 4.654265403747559px 4.654265403747559px 9.308530807495117px 0px rgba(0, 0, 0, 0.32) inset;*/
-  /*margin: 0 auto !important;*/
   box-shadow: -2.7925593852996826px -2.7925593852996826px 3.72341251373291px 0px rgba(255, 255, 255, 0.1) inset;
   border-radius: 11px;
   padding: 0 10px;

@@ -7,9 +7,9 @@ import {
   Output,
   SimpleChanges, ViewChild
 } from '@angular/core';
-import {ChatBoardFacade} from "../+state/chat-board.facade";
-import {SwiperComponent} from "swiper/angular";
-import {FormControl} from "@angular/forms";
+import { ChatBoardFacade } from "../+state/chat-board.facade";
+import { SwiperComponent } from "swiper/angular";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-chat-content',
@@ -22,29 +22,17 @@ export class ChatContentComponent implements OnInit, OnChanges{
   @Output() indexNumberChange = new EventEmitter();
   @ViewChild('mySwiper', { static: false }) mySwiper?: SwiperComponent;
 
-  slides = Array.from({ length: 5 }).map((el, index) => `Slide ${index}`);
   navigation = false;
   scrollbar: any = false;
   message = new FormControl();
   constructor(private chatBoardFacade: ChatBoardFacade) {}
 
-  ngOnInit(): void {
-    // this.chatBoardFacade.changeTestData();
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges | any): void {
     if(changes.indexNumber?.currentValue !== changes.indexNumber?.previousValue){
       this.indexNumber = changes.indexNumber?.currentValue;
     }
-    // if(changes.defaultRecords?.currentValue !== changes.defaultRecords?.previousValue){
-    //   const elementId = 'message-area' + this.indexNumber;
-    //   const scrollToElement = document.getElementById(elementId);
-    //   scrollToElement?.scrollIntoView({
-    //     behavior: 'smooth',
-    //     block: 'end',
-    //     inline: 'end'
-    //   });
-    // }
   }
 
   swipeHeaderRoom(indexNumber: number) {

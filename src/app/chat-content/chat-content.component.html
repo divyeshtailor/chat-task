@@ -3,8 +3,7 @@
           [(index)]="indexNumber" >
     <ng-template swiperSlide let-data *ngFor="let slide of defaultRecords; index as i">
       <div class="chatbox-main">
-        <span> {{ data.isActive + ' ' + i }} </span>
-        <div class="message-area">
+        <div class="message-area" [id]="data.isActive ? 'message-area' + indexNumber : ''">
           <div *ngFor="let msg of slide.messages">
             <div class="chat-sender" *ngIf="msg.status == 'received'">
               <p>
@@ -24,8 +23,9 @@
             <a href="#">
               <img src="./assets/Vector.png" (click)="addMessage(i)"/>
             </a>
-            <a href="#">
-              <img src="./assets/Attachment.png" />
+            <a class="attachment">
+              <label for="fileInput"><img src="./assets/Attachment.png" /></label>
+              <input type="file" id="fileInput" style="display: none">
             </a>
             <a href="#">
               <img src="./assets/Emoji.png" />
@@ -33,11 +33,7 @@
           </div>
         </div>
       </div>
-
     </ng-template>
-    <div slot="container-end" class="swiper-pagination pagination-test">
-
-    </div>
-
+    <div slot="container-end" class="swiper-pagination pagination-test"></div>
   </swiper>
 </div>
