@@ -19,7 +19,7 @@ export class ChatBoardFacade {
     this.store.dispatch(chatBoardActions.defaultRecord({ defaultRecord }));
   }
 
-  addMessage(index: number, message: string, status: string) {
+  addMessage(index: number, message: string | null, status: string) {
     this.store.dispatch(chatBoardActions.addMessage({ index, message, status }));
   }
 

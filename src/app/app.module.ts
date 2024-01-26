@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { ProgressBarModule } from "nextsapien-component-lib";
 import { ChatScreenComponent } from './chat-screen/chat-screen.component';
 import { ChatHeaderComponent } from './chat-header/chat-header.component';
 import { ChatContentComponent } from './chat-content/chat-content.component';
@@ -11,6 +10,7 @@ import { StoreModule} from "@ngrx/store";
 import { featureKey, reducer } from "./+state/chat-board.reducer";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     StoreDevtoolsModule.instrument(),
     FormsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    PickerModule
     // ProgressBarModule
   ],
   providers: [],

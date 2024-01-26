@@ -1,6 +1,6 @@
 <div class="chatContent-main">
   <swiper [slidesPerView]="'auto'" [spaceBetween]="10" [loop]="true"
-          [(index)]="indexNumber" >
+          [(index)]="indexNumber" (slideChange)="swipeHeaderRoom()">
     <ng-template swiperSlide let-data *ngFor="let slide of defaultRecords; index as i">
       <div class="chatbox-main">
         <div class="message-area" [id]="data.isActive ? 'message-area' + indexNumber : ''">
@@ -27,7 +27,7 @@
               <label for="fileInput"><img src="./assets/Attachment.png" /></label>
               <input type="file" id="fileInput" style="display: none">
             </a>
-            <a href="#">
+            <a href="#" (click)="toggleEmojiPicker()">
               <img src="./assets/Emoji.png" />
             </a>
           </div>
@@ -36,4 +36,12 @@
     </ng-template>
     <div slot="container-end" class="swiper-pagination pagination-test"></div>
   </swiper>
+  <emoji-mart
+    class="emoji-mart"
+    *ngIf="showEmojiPicker"
+    (emojiSelect)="addEmoji($event)"
+    title="Add Emoji"
+    [set]="'twitter'"
+    [perLine]="perLineEmoji"
+  ></emoji-mart>
 </div>
