@@ -1,6 +1,6 @@
 <div class="chatContent-main">
   <swiper [slidesPerView]="'auto'" [spaceBetween]="10" [loop]="true"
-          [(index)]="indexNumber" (slideChange)="swipeHeaderRoom()">
+          [(index)]="indexNumber" (slideChange)="swipeHeaderRoom()" [formGroup]="messageFormGroup">
     <ng-template swiperSlide let-data *ngFor="let slide of defaultRecords; index as i">
       <div class="chatbox-main">
         <div class="message-area" [id]="data.isActive ? 'message-area' + indexNumber : ''">
@@ -18,10 +18,10 @@
           </div>
         </div>
         <div class="chat-message">
-          <textarea name="chat-msg" id="chat-msg" cols="30" rows="7" placeholder="Your Message" [formControl]="message"></textarea>
+          <textarea name="chat-msg" cols="30" rows="7" placeholder="Your Message" [formControlName]="'message' + i"></textarea>
           <div class="chat-images">
             <a href="#">
-              <img src="./assets/Vector.png" (click)="addMessage(i)"/>
+              <img src="./assets/Vector.png" (click)="addMessage(i, ('message' + i))"/>
             </a>
             <a class="attachment">
               <label for="fileInput"><img src="./assets/Attachment.png" /></label>

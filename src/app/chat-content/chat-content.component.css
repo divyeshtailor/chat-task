@@ -14,7 +14,8 @@
   padding: 10px;
 }
 .chatContent-main textarea {
-  background: linear-gradient(191.18deg, #27242C 61.33%, #0C0B0E 101.43%);
+  box-shadow: inset 17px 22px 20px 2.5px rgba(17, 16, 20, .7), inset -2px -2px 8px rgba(203, 199, 209, .5);
+  background: transparent;
   border-radius: 13px;
   resize: none;
   min-height: 105px;
@@ -38,7 +39,6 @@
 .chat-message {
   position: relative;
   margin: 20px 0;
-  box-shadow: -2.7925593852996826px -2.7925593852996826px 3.72341251373291px 0px rgba(255, 255, 255, 0.1) inset;
   border-radius: 11px;
 }
 .chat-images {
@@ -69,4 +69,8 @@ border-radius: 5px;
 .swiper-slide{
   display: flex;
   align-items: end;
+}
+.chatContent-main .swiper-slide{
+  box-shadow: inset 17px 22px 20px 2.5px rgba(17, 16, 20, .7), inset -2px -2px 8px rgba(203, 199, 209, .5);
+  background: transparent;
 }

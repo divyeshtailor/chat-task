@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import {ChatBoardFacade} from "../+state/chat-board.facade";
 import {SwiperComponent} from "swiper/angular";
-import {FormControl, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators, UntypedFormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-chat-content',
@@ -22,12 +22,17 @@ import {FormControl, Validators} from "@angular/forms";
 export class ChatContentComponent implements OnInit, OnChanges{
   @Input() indexNumber = 0;
   @Input() defaultRecords: any;
-  @Output() indexNumberChange = new EventEmitter();
   @ViewChild('mySwiper', { static: false }) mySwiper?: SwiperComponent;
 
   navigation = false;
   scrollbar: any = false;
-  message = new FormControl('', [Validators.required]);
+  messageFormGroup = new UntypedFormGroup({
+    message0 : new FormControl('', [Validators.required]),
+    message1 : new FormControl('', [Validators.required]),
+    message2 : new FormControl('', [Validators.required]),
+    message3 : new FormControl('', [Validators.required]),
+    message4 : new FormControl('', [Validators.required])
+  });
   showEmojiPicker = false;
   perLineEmoji = 6;
   constructor(private chatBoardFacade: ChatBoardFacade) {}
@@ -50,15 +55,16 @@ export class ChatContentComponent implements OnInit, OnChanges{
   }
 
   addEmoji(event: any) {
-    const text = `${this.message.value ? this.message.value : ''}${event.emoji.native}`;
-    this.message.setValue(text);
+    const controlName = 'message' + this.indexNumber;
+    const text = `${this.messageFormGroup.controls[controlName].value ? this.messageFormGroup.controls[controlName].value : ''}${event.emoji.native}`;
+    this.messageFormGroup.controls[controlName].setValue(text);
     this.showEmojiPicker = false;
   }
 
-  addMessage(index: number){
-    if (this.message.valid) {
-      this.chatBoardFacade.addMessage(index, this.message.value, 'sent');
-      this.message.setValue('');
+  addMessage(index: number, controlName: string){
+    if (this.messageFormGroup.controls[controlName].valid) {
+      this.chatBoardFacade.addMessage(index, this.messageFormGroup.controls[controlName].value, 'sent');
+      this.messageFormGroup.controls[controlName].setValue('');
     }
   }
 }
