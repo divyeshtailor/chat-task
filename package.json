@@ -21,7 +21,6 @@
     "@ctrl/ngx-emoji-mart": "8.2.0",
     "@ngrx/store": "^15.0.0",
     "@ngrx/store-devtools": "^15.2.0",
-    "nextsapien-component-lib": "^0.0.132",
     "ngrx-immer": "^2.1.1",
     "rxjs": "~7.8.0",
     "swiper": "^6",
