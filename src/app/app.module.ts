@@ -25,7 +25,7 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     SwiperModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature(featureKey, reducer),
-    StoreDevtoolsModule.instrument(),
+    StoreDevtoolsModule.instrument({connectInZone: true}),
     FormsModule,
     ReactiveFormsModule,
     FormsModule,

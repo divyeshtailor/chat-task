@@ -1,17 +1,15 @@
 import {
   Component,
-  EventEmitter,
   Input,
   OnChanges,
   OnInit,
-  Output,
   SimpleChanges,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import {ChatBoardFacade} from "../+state/chat-board.facade";
-import {SwiperComponent} from "swiper/angular";
-import {FormControl, FormGroup, Validators, UntypedFormGroup} from "@angular/forms";
+import { ChatBoardFacade } from "../+state/chat-board.facade";
+import { SwiperComponent } from "swiper/angular";
+import { FormControl, Validators, UntypedFormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-chat-content',
@@ -22,7 +20,7 @@ import {FormControl, FormGroup, Validators, UntypedFormGroup} from "@angular/for
 export class ChatContentComponent implements OnInit, OnChanges{
   @Input() indexNumber = 0;
   @Input() defaultRecords: any;
-  @ViewChild('mySwiper', { static: false }) mySwiper?: SwiperComponent;
+  @ViewChild(SwiperComponent) swiper?: SwiperComponent;
 
   navigation = false;
   scrollbar: any = false;
@@ -43,6 +41,15 @@ export class ChatContentComponent implements OnInit, OnChanges{
     if(changes.indexNumber?.currentValue !== changes.indexNumber?.previousValue){
       this.showEmojiPicker = false;
       this.indexNumber = changes.indexNumber?.currentValue;
+      if(this.indexNumber) {
+        this.swipeSlideNext();
+      }
+    }
+  }
+
+  swipeSlideNext() {
+    if (this.swiper && this.swiper.swiperRef) {
+      this.swiper.swiperRef.slideTo(this.indexNumber);
     }
   }
 

@@ -1,7 +1,7 @@
 <div class="chatHeader-main">
   <swiper [navigation]="navigation"
           [slidesPerView]="3" [spaceBetween]="50" [breakpoints]="breakpoints" [scrollbar]="scrollbar" [loop]="true"
-          [(index)]="indexNumber" [pagination]="{ el: '.swiper-pagination.pagination-test' }">
+          [pagination]="{ el: '.swiper-pagination.pagination-test' }">
     <ng-template swiperSlide let-data *ngFor="let slide of defaultRecords; index as i">
       <div class="profile-card" [ngClass]="data.isActive ? 'border-set' : ''">
         <img (click)="swipeHeaderRoom(i)" class="profile-image" src="{{slide.url}}" alt="Profile 1">
