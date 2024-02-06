@@ -1,13 +1,20 @@
-import {ChangeDetectorRef, Component, Input, NgZone, Output, EventEmitter} from '@angular/core';
-import {ChatBoardFacade} from "../+state/chat-board.facade";
-import {CircleProgressComponent} from "nextsapien-component-lib";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+import { SwiperComponent } from "swiper/angular";
 
 @Component({
   selector: 'app-chat-header',
   templateUrl: './chat-header.component.html',
   styleUrls: ['./chat-header.component.css']
 })
-export class ChatHeaderComponent {
+export class ChatHeaderComponent implements OnChanges{
   slides = Array.from({ length: 5 }).map((el, index) => `U`);
   slideMy = [];
   slidesEx = ['first', 'second', 'third', 'fourth', 'fifth'];
@@ -23,8 +30,9 @@ export class ChatHeaderComponent {
   @Input() indexNumber = 0;
   @Input() defaultRecords: any;
   @Output() indexNumberChange = new EventEmitter();
+  @ViewChild(SwiperComponent) swiper?: SwiperComponent;
 
-  constructor(private cd: ChangeDetectorRef, private ngZone: NgZone, private chatBoardFacade: ChatBoardFacade) {}
+  constructor() {}
 
   toggleNavigation() {
     this.navigation = !this.navigation;
@@ -32,7 +40,21 @@ export class ChatHeaderComponent {
 
   swipeHeaderRoom(indexNumber: number) {
     this.indexNumberChange.emit( indexNumber);
+    this.swipeSlideNext();
   }
 
+  ngOnChanges(changes: SimpleChanges | any): void {
+    if(changes.indexNumber?.currentValue !== changes.indexNumber?.previousValue){
+      this.indexNumber = changes.indexNumber?.currentValue;
+      if(this.indexNumber) {
+        this.swipeSlideNext();
+      }
+    }
+  }
 
+  swipeSlideNext() {
+    if (this.swiper && this.swiper.swiperRef) {
+      this.swiper.swiperRef.slideTo(this.indexNumber);
+    }
+  }
 }

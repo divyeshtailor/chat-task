@@ -3,7 +3,10 @@
           [slidesPerView]="3" [spaceBetween]="50" [breakpoints]="breakpoints" [scrollbar]="scrollbar" [loop]="true"
           [pagination]="{ el: '.swiper-pagination.pagination-test' }">
     <ng-template swiperSlide let-data *ngFor="let slide of defaultRecords; index as i">
-      <div class="profile-card circle-chat-header" (click)="swipeHeaderRoom(i)" [ngClass]="data.isActive ? 'border-set' : ''">
+      <!--<div class="profile-card" [ngClass]="data.isActive ? 'border-set' : ''">
+        <img (click)="swipeHeaderRoom(i)" class="profile-image" src="{{slide.url}}" alt="Profile 1">
+      </div>-->
+     <div class="profile-card circle-chat-header" (click)="swipeHeaderRoom(i)" [ngClass]="[data.isActive ? 'border-set' : '', indexNumber !== i ? 'hide' : '' ]">
         <lib-circle-progress class="profile-image" [max]="50" [value]='70' [imageUrl]='slide.url'>
         </lib-circle-progress>
       </div>
