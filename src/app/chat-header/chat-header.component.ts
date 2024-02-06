@@ -1,5 +1,6 @@
 import {ChangeDetectorRef, Component, Input, NgZone, Output, EventEmitter} from '@angular/core';
 import {ChatBoardFacade} from "../+state/chat-board.facade";
+import {CircleProgressComponent} from "nextsapien-component-lib";
 
 @Component({
   selector: 'app-chat-header',
