@@ -11,7 +11,7 @@ import { featureKey, reducer } from "./+state/chat-board.reducer";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
-import {CircleProgressModule, NextsapienComponentLibModule} from "nextsapien-component-lib";
+import { CircleProgressModule } from "nextsapien-component-lib";
 
 @NgModule({
   declarations: [
@@ -31,8 +31,7 @@ import {CircleProgressModule, NextsapienComponentLibModule} from "nextsapien-com
     ReactiveFormsModule,
     FormsModule,
     PickerModule,
-    CircleProgressModule,
-    // NextsapienComponentLibModule
+    CircleProgressModule
   ],
   providers: [],
   bootstrap: [AppComponent]
