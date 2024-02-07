@@ -33,6 +33,8 @@ export class ChatContentComponent implements OnInit, OnChanges{
   });
   showEmojiPicker = false;
   perLineEmoji = 6;
+  selectedFile: any;
+  filesSelected: boolean = false;
   constructor(private chatBoardFacade: ChatBoardFacade) {}
 
   ngOnInit(): void {}
@@ -70,8 +72,35 @@ export class ChatContentComponent implements OnInit, OnChanges{
 
   addMessage(index: number, controlName: string){
     if (this.messageFormGroup.controls[controlName].valid) {
-      this.chatBoardFacade.addMessage(index, this.messageFormGroup.controls[controlName].value, 'sent');
+      if(this.filesSelected) {
+        const imageFile = `<img src="${this.selectedFile}" />`
+        this.messageFormGroup.controls['message' + index].setValue(imageFile);
+        this.chatBoardFacade.addMessage(index, this.messageFormGroup.controls[controlName].value, 'sent');
+        this.filesSelected = false;
+      }
+      else {
+        this.chatBoardFacade.addMessage(index, this.messageFormGroup.controls[controlName].value, 'sent');
+      }
       this.messageFormGroup.controls[controlName].setValue('');
+    }
+  }
+
+  onFileSelected(event: any, selectedIndex: string): void {
+    // Handle the selected file
+    const file = event.target.files[0];
+    let imageFile = '';
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        // Store the file content as a data URL
+        this.selectedFile = e.target?.result as string;
+        imageFile = `<img src="${this.selectedFile}" />`;
+        debugger
+        this.messageFormGroup.controls[selectedIndex].setValue(file?.name);
+        this.filesSelected = true;
+      };
+      // Read the file as a data URL (Base64 format)
+      reader.readAsDataURL(file);
     }
   }
 }

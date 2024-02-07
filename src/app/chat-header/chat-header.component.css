@@ -18,3 +18,12 @@
 ::ng-deep .hide svg {
   display: none;
 }
+.border-set img{
+  border: 7.99px solid;
+  border-image-source: radial-gradient(55.71% 53.43% at 49.5% 50%, rgba(255, 255, 255, 0) 62.97%, #FE3C72 82.29%, rgba(255, 255, 255, 0) 98.9%);
+}
+
+.profile-image .circle-img {
+  width: 95%;
+  height: 95%;
+}

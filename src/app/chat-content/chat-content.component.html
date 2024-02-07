@@ -11,21 +11,19 @@
               </p>
             </div>
             <div class="chat-reply" *ngIf="msg.status == 'sent'">
-              <p>
-                {{ msg.message }}
-              </p>
+              <p [innerHTML]="msg.message"></p>
             </div>
           </div>
         </div>
         <div class="chat-message">
-          <textarea name="chat-msg" cols="30" rows="7" placeholder="Your Message" [formControlName]="'message' + i"></textarea>
+          <textarea name="chat-msg" cols="30" rows="7" placeholder="Your Message" [formControlName]="'message' + i"  ></textarea>
           <div class="chat-images">
             <a href="#">
               <img src="./assets/Vector.png" (click)="addMessage(i, ('message' + i))"/>
             </a>
             <a class="attachment">
               <label for="fileInput"><img src="./assets/Attachment.png" /></label>
-              <input type="file" id="fileInput" style="display: none">
+              <input type="file" id="fileInput" style="display: none" (change)="onFileSelected($event, ('message' + indexNumber))">
             </a>
             <a href="#" (click)="toggleEmojiPicker()">
               <img src="./assets/Emoji.png" />

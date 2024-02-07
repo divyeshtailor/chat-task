@@ -46,7 +46,7 @@ export class ChatHeaderComponent implements OnChanges{
   ngOnChanges(changes: SimpleChanges | any): void {
     if(changes.indexNumber?.currentValue !== changes.indexNumber?.previousValue){
       this.indexNumber = changes.indexNumber?.currentValue;
-      if(this.indexNumber) {
+      if(this.indexNumber || this.indexNumber == 0) {
         this.swipeSlideNext();
       }
     }
